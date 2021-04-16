@@ -1,0 +1,73 @@
+{
+  "grammar":
+  {
+    "-name": "G3",
+    "terminalsymbols":
+    {
+      "term": [
+        {"-name": "a"},
+        {"-name": "b"},
+        {"-name": "c"},
+        {"-name": "d"}
+      ]
+    },
+    "nonterminalsymbols": {
+      "nonterm": [
+        { "-name": "S" },
+        { "-name": "A" }
+      ]
+    },
+    "productions": {
+      "production": [
+        {
+          "lhs": { "-name": "S" },
+          "rhs":
+          [
+            [
+              {
+                "-type": "nonterm",
+                "-name": "A"
+              },
+              {
+                "-type": "term",
+                "-name": "a"
+              }
+            ],
+            [
+              {
+                "-type": "term",
+                "-name": "b"
+              }
+            ]
+          ]
+        },
+        {
+          "lhs": { "-name": "A" },
+          "rhs": [
+           [
+              {
+                "-type": "nonterm",
+                "-name": "A"
+              },
+              {
+                "-type": "term",
+                "-name": "c"
+              }
+            ],
+            [
+              {
+                "-type": "nonterm",
+                "-name": "S"
+              },
+              {
+                "-type": "term",
+                "-name": "d"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "startsymbol": { "-name": "S" }
+  }
+}

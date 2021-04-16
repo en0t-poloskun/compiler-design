@@ -1,0 +1,190 @@
+{
+    "grammar": {
+        "-name": "G1",
+        "terminalsymbols": {
+            "term": [
+                {
+                    "-name": "a"
+                },
+                {
+                    "-name": "+"
+                },
+                {
+                    "-name": "*"
+                },
+                {
+                    "-name": "("
+                },
+                {
+                    "-name": ")"
+                }
+            ]
+        },
+        "nonterminalsymbols": {
+            "nonterm": [
+                {
+                    "-name": "E"
+                },
+                {
+                    "-name": "T"
+                },
+                {
+                    "-name": "F"
+                }
+            ]
+        },
+        "productions": {
+            "production": [
+                {
+                    "lhs": {
+                        "-name": "E"
+                    },
+                    "rhs": [
+                        [
+                            {
+                                "-type": "nonterm",
+                                "-name": "T"
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "E1"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "lhs": {
+                        "-name": "T"
+                    },
+                    "rhs": [
+                        [
+                            {
+                                "-type": "nonterm",
+                                "-name": "F"
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "T1"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "lhs": {
+                        "-name": "F"
+                    },
+                    "rhs": [
+                        [
+                            {
+                                "-type": "term",
+                                "-name": "a"
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "F1"
+                            }
+                        ],
+                        [
+                            {
+                                "-type": "term",
+                                "-name": "("
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "E"
+                            },
+                            {
+                                "-type": "term",
+                                "-name": ")"
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "F1"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "lhs": {
+                        "name": "E1"
+                    },
+                    "rhs": [
+                        [
+                            {
+                                "-type": "term",
+                                "-name": "+"
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "T"
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "E1"
+                            }
+                        ],
+                        [
+                            {
+                                "-type": "term",
+                                "-name": "eps"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "lhs": {
+                        "name": "T1"
+                    },
+                    "rhs": [
+                        [
+                            {
+                                "-type": "term",
+                                "-name": "*"
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "F"
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "T1"
+                            }
+                        ],
+                        [
+                            {
+                                "-type": "term",
+                                "-name": "eps"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "lhs": {
+                        "name": "F1"
+                    },
+                    "rhs": [
+                        [
+                            {
+                                "-type": "nonterm",
+                                "-name": "F"
+                            },
+                            {
+                                "-type": "nonterm",
+                                "-name": "F1"
+                            }
+                        ],
+                        [
+                            {
+                                "-type": "term",
+                                "-name": "eps"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        "startsymbol": {
+            "-name": "E"
+        }
+    }
+}

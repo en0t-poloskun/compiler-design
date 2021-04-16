@@ -1,0 +1,133 @@
+{
+  "grammar":
+  {
+    "-name": "G4",
+    "terminalsymbols":
+    {
+      "term": [
+        {"-name": "a"},
+        {"-name": "b"}
+      ]
+    },
+    "nonterminalsymbols": {
+      "nonterm": [
+        { "-name": "S" },
+        { "-name": "A" },
+        { "-name": "B" },
+        { "-name": "C" },
+        { "-name": "D" }
+      ]
+    },
+    "productions": {
+      "production": [
+        {
+          "lhs": { "-name": "S" },
+          "rhs":
+          [
+            [
+              {
+                "-type": "nonterm",
+                "-name": "A"
+              },
+              {
+                "-type": "nonterm",
+                "-name": "S"
+              },
+              {
+                "-type": "nonterm",
+                "-name": "B"
+              }
+            ],
+            [
+              {
+                "-type": "nonterm",
+                "-name": "C"
+              }
+            ],
+            [
+              {
+                "-type": "nonterm",
+                "-name": "B"
+              },
+              {
+                "-type": "nonterm",
+                "-name": "S"
+              }
+            ]
+          ]
+        },
+        {
+          "lhs": { "-name": "A" },
+          "rhs": [
+           [
+             {
+                "-type": "term",
+                "-name": "b"
+              },
+              {
+                "-type": "nonterm",
+                "-name": "A"
+              }
+            ],
+            [
+              {
+                "-type": "nonterm",
+                "-name": "B"
+              }
+            ]
+          ]
+        },
+        {
+          "lhs": { "-name": "B" },
+          "rhs": [
+           [
+             {
+                "-type": "nonterm",
+                "-name": "C"
+              }
+            ],
+            [
+              {
+                "-type": "term",
+                "-name": "a"
+              }
+            ]
+          ]
+        },
+        {
+          "lhs": { "-name": "C" },
+          "rhs": [
+           [
+             {
+                "-type": "nonterm",
+                "-name": "D"
+              }
+            ],
+            [
+              {
+                "-type": "nonterm",
+                "-name": "A"
+              },
+              {
+                "-type": "nonterm",
+                "-name": "C"
+              }
+            ]
+          ]
+        },
+        {
+          "lhs": { "-name": "D" },
+          "rhs": [
+           [
+             {
+                "-type": "term",
+                "-name": "b"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "startsymbol": { "-name": "S" }
+  }
+}

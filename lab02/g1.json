@@ -1,0 +1,114 @@
+{
+  "grammar":
+  {
+    "-name": "G1",
+    "terminalsymbols":
+    {
+      "term": [
+        {"-name": "a"},
+        {"-name": "+"},
+        {"-name": "*"},
+        {"-name": "("},
+        {"-name": ")"}
+      ]
+    },
+    "nonterminalsymbols": {
+      "nonterm": [
+        { "-name": "E" },
+        { "-name": "T" },
+        { "-name": "F" }
+      ]
+    },
+    "productions": {
+      "production": [
+        {
+          "lhs": { "-name": "E" },
+          "rhs":
+          [
+            [
+              {
+                "-type": "nonterm",
+                "-name": "E"
+              },
+              {
+                "-type": "term",
+                "-name": "+"
+              },
+              {
+                "-type": "nonterm",
+                "-name": "T"
+              }
+            ],
+            [
+              {
+                "-type": "nonterm",
+                "-name": "T"
+              }
+            ]
+          ]
+        },
+        {
+          "lhs": { "-name": "T" },
+          "rhs": [
+            [
+              {
+                "-type": "nonterm",
+                "-name": "T"
+              },
+              {
+                "-type": "term",
+                "-name": "*"
+              },
+              {
+                "-type": "nonterm",
+                "-name": "F"
+              }
+            ],
+            [
+              {
+              "-type": "nonterm",
+              "-name": "F"
+              }
+            ]
+          ]
+        },
+        {
+          "lhs": { "-name": "F" },
+          "rhs": [
+            [
+              {
+              "-type": "term",
+              "-name": "a"
+              }
+            ],
+            [
+              {
+                "-type": "term",
+                "-name": "("
+              },
+              {
+                "-type": "nonterm",
+                "-name": "E"
+              },
+              {
+                "-type": "term",
+                "-name": ")"
+              }
+            ],
+            [
+              {
+              "-type": "nonterm",
+              "-name": "F"
+              },
+              {
+              "-type": "nonterm",
+              "-name": "F"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "startsymbol": { "-name": "E" }
+  }
+}
